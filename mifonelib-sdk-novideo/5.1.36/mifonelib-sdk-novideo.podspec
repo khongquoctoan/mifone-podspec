@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name         = "linphone-sdk-novideo"
+  s.name         = "mifonelib-sdk-novideo"
   s.version      = "5.1.36"
   s.summary      = "Liblinphone is a library to create VoIP and IM apps, based on SIP protocol."
   s.description  = <<-PODSPEC_DESC
@@ -659,33 +659,33 @@ LICENSE
   s.author       = { 'Belledonne Communications SARL' => 'linphone-iphone@belledonne-communications.com' }
   s.platform     = :ios, "9.0"
   s.source       = { :http => "https://download.linphone.org/releases/ios//novideo/linphone-sdk-ios-5.1.36.zip" }
-  s.vendored_frameworks = "linphone-sdk-novideo/apple-darwin/Frameworks/**"
+  s.vendored_frameworks = "mifonelib-sdk-novideo/apple-darwin/Frameworks/**"
   s.pod_target_xcconfig = { 'VALID_ARCHS' => "arm64 armv7 x86_64" }
   s.module_name   = 'linphonesw' # name of the swift package
   s.swift_version = '4.0'
 
   s.subspec 'all-frameworks' do |sp|
-    sp.vendored_frameworks = "linphone-sdk-novideo/apple-darwin/Frameworks/**"
+    sp.vendored_frameworks = "mifonelib-sdk-novideo/apple-darwin/Frameworks/**"
   end
 
   s.subspec 'basic-frameworks' do |sp|
-    sp.dependency 'linphone-sdk-novideo/app-extension'
-    sp.vendored_frameworks = "linphone-sdk-novideo/apple-darwin/Frameworks/{bctoolbox-ios.framework}"
+    sp.dependency 'mifonelib-sdk-novideo/app-extension'
+    sp.vendored_frameworks = "mifonelib-sdk-novideo/apple-darwin/Frameworks/{bctoolbox-ios.framework}"
   end
 
   s.subspec 'app-extension' do |sp|
-    sp.vendored_frameworks = "linphone-sdk-novideo/apple-darwin/Frameworks/{bctoolbox.framework,belcard.framework,belle-sip.framework,belr.framework,lime.framework,linphone.framework,mediastreamer2.framework,msamr.framework,mscodec2.framework,msopenh264.framework,mssilk.framework,mswebrtc.framework,msx264.framework,ortp.framework}"
+    sp.vendored_frameworks = "mifonelib-sdk-novideo/apple-darwin/Frameworks/{bctoolbox.framework,belcard.framework,belle-sip.framework,belr.framework,lime.framework,linphone.framework,mediastreamer2.framework,msamr.framework,mscodec2.framework,msopenh264.framework,mssilk.framework,mswebrtc.framework,msx264.framework,ortp.framework}"
   end
 
   s.subspec 'app-extension-swift' do |sp|
-    sp.source_files = "linphone-sdk-novideo/apple-darwin/share/linphonesw/*.swift"
-    sp.dependency "linphone-sdk-novideo/app-extension"
+    sp.source_files = "mifonelib-sdk-novideo/apple-darwin/share/linphonesw/*.swift"
+    sp.dependency "mifonelib-sdk-novideo/app-extension"
     sp.framework = 'linphone', 'belle-sip', 'bctoolbox'
   end
 
   s.subspec 'swift' do |sp|
-    sp.dependency "linphone-sdk-novideo/basic-frameworks"
-    sp.dependency "linphone-sdk-novideo/app-extension-swift"
+    sp.dependency "mifonelib-sdk-novideo/basic-frameworks"
+    sp.dependency "mifonelib-sdk-novideo/app-extension-swift"
     sp.framework = 'bctoolbox-ios'
   end
 
